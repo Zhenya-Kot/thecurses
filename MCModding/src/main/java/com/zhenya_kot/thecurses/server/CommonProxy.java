@@ -5,6 +5,7 @@ import com.zhenya_kot.thecurses.commands.CursemeCommand;
 import com.zhenya_kot.thecurses.commands.SetCursetypeCommand;
 import com.zhenya_kot.thecurses.commands.SetTimerCommand;
 import com.zhenya_kot.thecurses.commands.TimerCommand;
+import com.zhenya_kot.thecurses.items.ItemsRegister;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

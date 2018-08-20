@@ -1,5 +1,6 @@
 package com.zhenya_kot.thecurses.client;
 
+import com.zhenya_kot.thecurses.items.ItemsRegister;
 import com.zhenya_kot.thecurses.server.CommonProxy;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -14,7 +15,7 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void init(FMLInitializationEvent E) {
-		
+		ItemsRegister.registerRenders();
 	}
 	
 	@Override

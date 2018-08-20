@@ -5,10 +5,12 @@ import java.util.Random;
 import com.zhenya_kot.thecurses.TheCurses;
 import com.zhenya_kot.thecurses.core.Curses;
 import com.zhenya_kot.thecurses.helpers.CursesMathHelper;
+import com.zhenya_kot.thecurses.items.ItemsRegister;
 
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityTippedArrow;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.text.TextComponentString;
@@ -34,19 +36,25 @@ public class EventsHandler {
 			if (cursetimer == 20*60*8) Curses.U3LC((EntityPlayer) e.getEntity());
 			if (cursetimer >= 12000 && cursetimer < 24000) {
 				if (rint < 60) { // 36% in all; for one 0.003%; real chance: 36%
-					Curses.C1LC(random, e.getEntityLiving());
+					if (( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI1L)) || 
+							( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI2L)) ||
+							( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L))) {}
+					else Curses.C1LC(random, e.getEntityLiving());
 					if (TheCurses.DEBUG) System.out.println("!!! [EVENT HANDLER] CurseTimerVariable = " + cursetimer + "  CurseTimer NBT = " + e.getEntity().getEntityData().getInteger("cursetimer") + "  [EVENT HANDLER] !!!");
 					cursetimer = 0;
 				}
 			} else if (cursetimer >= 24000 && cursetimer < 36000) {
 				if (rint < 100) { // 60% in all; for one 0.005%; real chance: 38,4%
-					Curses.C2LC(random, e.getEntityLiving());
+					if ((  (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI2L)) ||
+							( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L))) {}
+					else Curses.C2LC(random, e.getEntityLiving());
 					if (TheCurses.DEBUG) System.out.println("!!! [EVENT HANDLER] CurseTimerVariable = " + cursetimer + "  CurseTimer NBT = " + e.getEntity().getEntityData().getInteger("cursetimer") + "  [EVENT HANDLER] !!!");
 					cursetimer = 0;
 				}
 			} else if (cursetimer >= 36000) {
 				if (rint < 200) { // 120% in all; for one 0.01%; real chance: 25,6%
-					Curses.C3LC(random, e.getEntityLiving());
+					if (( ( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L)))) {}
+					else Curses.C3LC(random, e.getEntityLiving());
 					if (TheCurses.DEBUG) System.out.println("!!! [EVENT HANDLER] CurseTimerVariable = " + cursetimer + "  CurseTimer NBT = " + e.getEntity().getEntityData().getInteger("cursetimer") + "  [EVENT HANDLER] !!!");
 					cursetimer = 0;
 				}

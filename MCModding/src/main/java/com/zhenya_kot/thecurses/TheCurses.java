@@ -1,6 +1,7 @@
 package com.zhenya_kot.thecurses;
 
 import com.zhenya_kot.thecurses.events.EventsHandler;
+import com.zhenya_kot.thecurses.items.ItemsRegister;
 import com.zhenya_kot.thecurses.server.CommonProxy;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -24,17 +25,18 @@ public class TheCurses {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent E) {
 		config(E);
-		//MinecraftForge.EVENT_BUS.register(new EventsHandler());
+		ItemsRegister.registerItems();
+		this.proxy.preInit(E);
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent E) {
-		
+		this.proxy.init(E);
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent E) {
-		
+		this.proxy.postInit(E);
 	}
 	
 	@EventHandler
