@@ -27,6 +27,10 @@ public class CommonProxy {
 	
 	public void serverStareting(FMLServerStartingEvent E) {
 		if (TheCurses.DEBUG) System.out.println("!!! [COMMON PROXY] Commmand Registering [COMMON PROXY] !!!");
+		registerCommands(E);
+	}
+	
+	private void registerCommands(FMLServerStartingEvent E) {
 		E.registerServerCommand(new SetTimerCommand());
 		E.registerServerCommand(new TimerCommand());
 		E.registerServerCommand(new CursemeCommand());
