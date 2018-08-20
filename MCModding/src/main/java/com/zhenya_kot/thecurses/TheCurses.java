@@ -15,11 +15,12 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 
 
-@Mod(modid = "thecurses", name="The Curses", version="0.0.2a")
+@Mod(modid = "thecurses", name="The Curses", version="1.0")
 public class TheCurses {
 	@SidedProxy(clientSide="com.zhenya_kot.thecurses.client.ClientProxy", serverSide="com.zhenya_kot.server.CommonProxy")
 	public static CommonProxy proxy;
 	public static boolean DEBUG;
+	public static boolean CRAFT_PROJECTIVE_ITEMS;
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent E) {
 		config(E);
@@ -45,7 +46,8 @@ public class TheCurses {
 		Configuration config = new Configuration(E.getSuggestedConfigurationFile());
 		config.load();
 		
-		DEBUG = config.get("debug", "DEBUG", false).getBoolean();
+		DEBUG = config.get("debug", "DEBUG", false, "DEBUG?").getBoolean();
+		CRAFT_PROJECTIVE_ITEMS = config.get("projective_items", "CRAFT_PROJECTIVE_ITEM", true).getBoolean();
 		
 		if(config.hasChanged());
 		config.save();

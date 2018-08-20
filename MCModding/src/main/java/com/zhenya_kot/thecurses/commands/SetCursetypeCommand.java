@@ -2,7 +2,7 @@ package com.zhenya_kot.thecurses.commands;
 
 import java.util.Random;
 
-import com.zhenya_kot.thecurses.basic.Curses;
+import com.zhenya_kot.thecurses.core.Curses;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;

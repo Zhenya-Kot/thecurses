@@ -3,8 +3,8 @@ package com.zhenya_kot.thecurses.events;
 import java.util.Random;
 
 import com.zhenya_kot.thecurses.TheCurses;
-import com.zhenya_kot.thecurses.basic.Curses;
-import com.zhenya_kot.thecurses.basic.CursesMathHelper;
+import com.zhenya_kot.thecurses.core.Curses;
+import com.zhenya_kot.thecurses.helpers.CursesMathHelper;
 
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;

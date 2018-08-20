@@ -1,4 +1,4 @@
-package com.zhenya_kot.thecurses.basic;
+package com.zhenya_kot.thecurses.helpers;
 
 import net.minecraft.util.math.Vec3i;
 

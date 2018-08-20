@@ -1,4 +1,4 @@
-package com.zhenya_kot.thecurses.basic;
+package com.zhenya_kot.thecurses.core;
 
 import java.util.Random;
 
