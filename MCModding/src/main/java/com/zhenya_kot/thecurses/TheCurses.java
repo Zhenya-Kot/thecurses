@@ -2,6 +2,7 @@ package com.zhenya_kot.thecurses;
 
 import com.zhenya_kot.thecurses.events.EventsHandler;
 import com.zhenya_kot.thecurses.items.ItemsRegister;
+import com.zhenya_kot.thecurses.recipes.CraftingRegister;
 import com.zhenya_kot.thecurses.server.CommonProxy;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +32,7 @@ public class TheCurses {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent E) {
+		CraftingRegister.registerRecipes();
 		this.proxy.init(E);
 	}
 	

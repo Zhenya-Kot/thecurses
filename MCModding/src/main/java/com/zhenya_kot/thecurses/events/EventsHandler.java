@@ -10,7 +10,9 @@ import com.zhenya_kot.thecurses.items.ItemsRegister;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityTippedArrow;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.text.TextComponentString;
@@ -38,22 +40,36 @@ public class EventsHandler {
 				if (rint < 60) { // 36% in all; for one 0.003%; real chance: 36%
 					if (( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI1L)) || 
 							( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI2L)) ||
-							( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L))) {}
-					else Curses.C1LC(random, e.getEntityLiving());
+							( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L))) {
+						((EntityPlayer) e.getEntityLiving()).sendMessage(new TextComponentString("You were protected from a curse"));
+						((EntityPlayer) e.getEntityLiving()).getEntityWorld().playSound(null, ((EntityPlayer) e.getEntityLiving()).getPosition(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.MASTER, 0.5F, 0.5F);
+						if ( ((EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI1L))) ((EntityPlayer) e.getEntity()).inventory.clearMatchingItems(ItemsRegister.PI1L, 0, 1, null);
+						else if ( ((EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI2L))) ((EntityPlayer) e.getEntity()).inventory.clearMatchingItems(ItemsRegister.PI2L, 0, 1, null);
+						else if ( ((EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L))) ((EntityPlayer) e.getEntity()).inventory.clearMatchingItems(ItemsRegister.PI3L, 0, 1, null);
+					} else Curses.C1LC(random, e.getEntityLiving());
 					if (TheCurses.DEBUG) System.out.println("!!! [EVENT HANDLER] CurseTimerVariable = " + cursetimer + "  CurseTimer NBT = " + e.getEntity().getEntityData().getInteger("cursetimer") + "  [EVENT HANDLER] !!!");
 					cursetimer = 0;
 				}
 			} else if (cursetimer >= 24000 && cursetimer < 36000) {
 				if (rint < 100) { // 60% in all; for one 0.005%; real chance: 38,4%
 					if ((  (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI2L)) ||
-							( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L))) {}
+							( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L))) {
+						((EntityPlayer) e.getEntityLiving()).sendMessage(new TextComponentString("You were protected from a curse"));
+						((EntityPlayer) e.getEntityLiving()).getEntityWorld().playSound(null, ((EntityPlayer) e.getEntityLiving()).getPosition(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.MASTER, 0.5F, 0.5F);
+						if ( ((EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI2L))) ((EntityPlayer) e.getEntity()).inventory.clearMatchingItems(ItemsRegister.PI2L, 0, 1, null);
+						else if ( ((EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L))) ((EntityPlayer) e.getEntity()).inventory.clearMatchingItems(ItemsRegister.PI3L, 0, 1, null);
+					}
 					else Curses.C2LC(random, e.getEntityLiving());
 					if (TheCurses.DEBUG) System.out.println("!!! [EVENT HANDLER] CurseTimerVariable = " + cursetimer + "  CurseTimer NBT = " + e.getEntity().getEntityData().getInteger("cursetimer") + "  [EVENT HANDLER] !!!");
 					cursetimer = 0;
 				}
 			} else if (cursetimer >= 36000) {
 				if (rint < 200) { // 120% in all; for one 0.01%; real chance: 25,6%
-					if (( ( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L)))) {}
+					if (( ( (EntityPlayer) e.getEntityLiving()).inventory.hasItemStack(new ItemStack(ItemsRegister.PI3L)))) {
+						((EntityPlayer) e.getEntityLiving()).sendMessage(new TextComponentString("You were protected from a curse"));
+						((EntityPlayer) e.getEntityLiving()).getEntityWorld().playSound(null, ((EntityPlayer) e.getEntityLiving()).getPosition(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.MASTER, 0.5F, 0.5F);
+						((EntityPlayer)e.getEntity()).inventory.clearMatchingItems(ItemsRegister.PI3L, 0, 1, null);
+					}
 					else Curses.C3LC(random, e.getEntityLiving());
 					if (TheCurses.DEBUG) System.out.println("!!! [EVENT HANDLER] CurseTimerVariable = " + cursetimer + "  CurseTimer NBT = " + e.getEntity().getEntityData().getInteger("cursetimer") + "  [EVENT HANDLER] !!!");
 					cursetimer = 0;

@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "S S",
+        " T ",
+        " E "
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:bone"
+        },
+        "T": {
+            "item": "minecraft:string"
+        },
+        "E": {
+            "item": "minecraft:emerald"
+        }
+    },
+    "result": {
+        "item": "thecurses:protective_item_2",
+        "count": 1
+    }
+}

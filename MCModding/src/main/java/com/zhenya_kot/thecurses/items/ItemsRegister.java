@@ -8,9 +8,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemsRegister {
-	public static Item PI1L = new ProjectiveItems("projective_item_1");
-	public static Item PI2L = new ProjectiveItems("projective_item_2");
-	public static Item PI3L = new ProjectiveItems("projective_item_3");
+	public static Item PI1L = new ProtectiveItems("protective_item_1");
+	public static Item PI2L = new ProtectiveItems("protective_item_2");
+	public static Item PI3L = new ProtectiveItems("protective_item_3");
 	
 	public static void registerItems() {
 		registerItem(PI1L);

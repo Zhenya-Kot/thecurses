@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "thecurses:items/projective_item_2"
+    "layer0": "thecurses:items/protective_item_1"
   }
 }
