@@ -22,7 +22,7 @@ public class TheCurses {
 	@SidedProxy(clientSide="com.zhenya_kot.thecurses.client.ClientProxy", serverSide="com.zhenya_kot.server.CommonProxy")
 	public static CommonProxy proxy;
 	public static boolean DEBUG;
-	public static boolean CRAFT_PROJECTIVE_ITEMS;
+	public static boolean CRAFT_PROTECTIVE_ITEMS;
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent E) {
 		config(E);
@@ -32,7 +32,7 @@ public class TheCurses {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent E) {
-		CraftingRegister.registerRecipes();
+		if (CRAFT_PROTECTIVE_ITEMS) CraftingRegister.registerRecipes();
 		this.proxy.init(E);
 	}
 	
@@ -51,7 +51,7 @@ public class TheCurses {
 		config.load();
 		
 		DEBUG = config.get("debug", "DEBUG", false, "DEBUG?").getBoolean();
-		CRAFT_PROJECTIVE_ITEMS = config.get("projective_items", "CRAFT_PROJECTIVE_ITEM", true).getBoolean();
+		CRAFT_PROTECTIVE_ITEMS = config.get("protective_items", "CRAFT_PROTECTIVE_ITEM", true).getBoolean();
 		
 		if(config.hasChanged());
 		config.save();
